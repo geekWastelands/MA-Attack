@@ -1,0 +1,9 @@
+# API Keys for different models
+# DO NOT commit this file to git!
+
+# gpt4v: "your_openai_api_key"
+claude: ""
+qwen: ""
+qwen3: ""
+gemini: "" 
+gpt4o: ""

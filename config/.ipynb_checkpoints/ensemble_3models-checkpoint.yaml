@@ -1,0 +1,45 @@
+# Configuration for ensemble_3models.py
+
+defaults:
+  - _self_
+
+data:
+  batch_size: 1
+  num_samples: 100
+  output: "./LAT"
+  cle_data_path: "resources/images/bigscale"
+  tgt_data_path: "resources/images/target_images"
+  cle_txt_path: ["resources/source.txt"]
+  tgt_txt_path: ["resources/blip2.txt",  "resources/llava.txt"]
+  # ,  "resources/llava.txt" "resources/minigpt4.txt", "resources/blip2.txt", "resources/minigpt4.txt", 
+  use_tgt_txt: False
+#ft:tgt.txt  4511  feature:caption.json   chain:basline COA
+optim:
+  alpha: 1.0
+  epsilon: 16
+  steps: 300
+  weight: [[0.3, 0.4, 0.3], [0.3, 0.4, 0.3], [0.3, 0.4, 0.3]]
+  # use_compression: False
+  # mode: "soft"
+
+model:
+  input_res: 224
+  use_source_crop: true
+  use_target_crop: true
+  crop_scale: [0.5, 0.9] 
+  ensemble: True
+  device: "cuda:0"  # Using GPU 1
+  # backbone: ["B16", "B32", "Laion"] #, "B16", "B32", "Laion"]  # Use all models in ensemble
+  backbone: ["B16", "B32", "Laion"]
+
+# wandb:
+#   project: "local_adversarial_attack"
+#   entity: ??? # fill your wandb entity
+config_hash: "ens_crop" #4511c00865cfafa8139ba8635c33ca0d ens_blip2_llava_43 foattack
+
+blackbox:
+  model_name: "qwen"  # Can be gpt4o, claude, gemini, gpt_4v qwen
+  batch_size: 1
+  timeout: 30
+
+attack: 'fgsm' # [fgsm, mifgsm, pgd]
