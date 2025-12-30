@@ -188,7 +188,7 @@ class ImageDescriptionGenerator:
         
         # ==================== HTTP请求头设置 ====================
         # 配置HTTP请求头，包含认证信息和内容类型
-        API_KEY = "sk-ZMySNzyoJxBb5dU4EEOcOScGga5LGoxeQc1qpToDdvzg9lHl"
+        API_KEY = ""
         url = "https://www.dmxapi.cn/v1/responses"
         headers = {
             "Content-Type": "application/json",           # 指定请求内容类型为 JSON
@@ -236,7 +236,7 @@ class ImageDescriptionGenerator:
         
         # ==================== HTTP请求头设置 ====================
         # 配置HTTP请求头，包含认证信息和内容类型
-        API_KEY = "sk-ZMySNzyoJxBb5dU4EEOcOScGga5LGoxeQc1qpToDdvzg9lHl"
+        API_KEY = ""
         url = "https://www.dmxapi.cn/v1/chat/completions"
         headers = {
             "Accept": "application/json",                    # 指定接受JSON格式的响应
